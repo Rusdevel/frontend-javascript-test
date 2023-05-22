@@ -1,5 +1,5 @@
 import "./header.css"
-
+import SearchForm from "../SearchForm/SearchForm";
 function Header () {
 
 return(
@@ -7,7 +7,9 @@ return(
 <h1 className="header__title">
 Search for books  
 </h1>
+<SearchForm/>
 </header>
+
 );
 
 

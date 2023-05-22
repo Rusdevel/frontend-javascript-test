@@ -1,6 +1,10 @@
 .header {
     background-color: #073042;
   }
+  .header__title {
+    color: #ffffff;
+    margin: 0 auto;
+  }
   .header-style {
     background-color: #202020;
   }
