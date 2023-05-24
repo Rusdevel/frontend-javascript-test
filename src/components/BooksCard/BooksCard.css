@@ -1,0 +1,92 @@
+.books-card {
+  min-width: 320px;
+  margin-bottom: 17px;
+  display: flex;
+  flex-direction: column;
+}
+
+.books-card__container {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .books-card__container {
+    max-width: 339px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .books-card__container {
+    max-width: 364px;
+  }
+}
+
+.books-img {
+  max-width: 290px;
+  height: 205px;
+  border-radius: 10px;
+}
+
+.books-card__group {
+  margin: 9px auto 0 auto;
+  max-width: 272px;
+  display: flex;
+  justify-content: space-between;
+  height: 18px;
+}
+
+@media screen and (min-width: 768px) {
+  .books-card__group {
+    margin-top: 12px;
+    max-width: 316px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .books-card__group {
+    margin-top: 15px;
+    max-width: 338px;
+  }
+}
+
+.books-card__title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ffffff;
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .books-card__title {
+    font-size: 13px;
+  }
+}
+
+.books-card__subtitle {
+  font-size: 10px;
+  line-height: 12px;
+  display: flex;
+  align-items: center;
+  color: #8b8b8b;
+}
+
+@media screen and (min-width: 768px) {
+  .books-card__subtitle {
+    font-size: 11px;
+    line-height: 13px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .books-card {
+    margin-bottom: 0;
+  }
+}
+@media screen and (min-width: 768px) {
+  .books-card {
+    margin-bottom: 0;
+  }
+}
