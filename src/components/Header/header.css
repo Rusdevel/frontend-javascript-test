@@ -4,6 +4,7 @@
   .header__title {
     color: #ffffff;
     margin: 0 auto;
+    padding-top: 7px;
   }
   .header-style {
     background-color: #202020;
@@ -46,6 +47,11 @@
       margin-left: 30px;
       font-size: 12px;
       padding-top: 10px;
+    }
+    .header__title {
+      color: #ffffff;
+      margin: 0 auto;
+      padding-top: 30px;
     }
     
   }

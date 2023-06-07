@@ -1,17 +1,41 @@
 .search-form {
   min-width: 320px;
   margin-top: 81px;
+  
+}
+.search-form__group {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  align-items: center;
+justify-content: space-around;
 }
 
 .search-form__label {
   color: #ffffff
 }
 
+.search-form__select{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 @media screen and (min-width: 768px) {
   .search-form {
     margin-top: 79px;
   }
+  .search-form__group {
+    display: flex;
+    flex-direction: column;
+   
+  justify-content: space-around;
+  }
+  .search-form__select{
+    min-width: 500px;
+  }
 }
+
 
 @media screen and (min-width: 1280px) {
   .search-form {

@@ -25,6 +25,7 @@ function SearchForm(props) {
             Поиск
           </button>
         </div>
+        <div className="search-form__select">
         <label className="search-form__label">
           Categories
           <select value={''} >
@@ -43,6 +44,8 @@ function SearchForm(props) {
             <option className="search-form__option" value="newest">newest</option>
           </select>
         </label>
+        </div>
+        
       </form>
     </section>
   );
