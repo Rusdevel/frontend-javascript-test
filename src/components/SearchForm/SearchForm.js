@@ -2,7 +2,26 @@ import React from "react";
 import "./SearchForm.css"
 
 function SearchForm(props) {
+const key = ':keyes&key=AIzaSyAkaV3Hgslq_9R0K8bjvIuaty56XMOKImA';
+  function getBooks() {
+    return fetch(` https://www.googleapis.com/books/v1/volumes?q=flowers${key}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "omit",
+    }).then((res) => {
+      return res.json(); // возвращаем результат работы метода и идём в следующий then
+    }).then((data) => {
+      console.log(data); // если мы попали в этот then, data — это объект
+    })
+    .catch((err) => {
+      console.log('Ошибка. Запрос не выполнен');
+    }); 
+  }
   
+  function showBooks () {
+    getBooks()
+  }
 
   return (
     <section className="search-form">
@@ -18,7 +37,7 @@ function SearchForm(props) {
             //onChange={}
           />
           <button
-            //onClick={}
+            onClick={showBooks}
             className="search-form__button"
             type="submit"
           >
