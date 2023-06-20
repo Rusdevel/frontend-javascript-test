@@ -1,45 +1,41 @@
 import React from "react";
 import "./SearchForm.css"
+import api from "../../utils/apiBooks";
 
-function SearchForm(props) {
-const key = ':keyes&key=AIzaSyAkaV3Hgslq_9R0K8bjvIuaty56XMOKImA';
-  function getBooks() {
-    return fetch(` https://www.googleapis.com/books/v1/volumes?q=flowers${key}`, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "omit",
-    }).then((res) => {
-      return res.json(); // возвращаем результат работы метода и идём в следующий then
-    }).then((data) => {
-      console.log(data); // если мы попали в этот then, data — это объект
-    })
-    .catch((err) => {
-      console.log('Ошибка. Запрос не выполнен');
-    }); 
-  }
+function SearchForm({setBooks}) {
+
+  const [search, setSearch] = React.useState("");
   
-  function showBooks () {
-    getBooks()
+  function showBooks (e) {
+    e.preventDefault();
+    api.getBooks(search)
+    .then(data => setBooks(data))
+    
+  }
+
+  function changeSearch(e) {
+    setSearch(e.target.value);
   }
 
   return (
     <section className="search-form">
-      <form className="search-form__group">
+      <form 
+      onSubmit={showBooks}
+      className="search-form__group">
         <div className="search-form__container">
           <input
             className="search-form__input"
             maxLength="30"
             type="text"
-            value={""}
+            value={search || ""}
             placeholder="введите текст"
             required
-            //onChange={}
+            onChange={changeSearch}
           />
           <button
-            onClick={showBooks}
+           // onClick={showBooks}
             className="search-form__button"
-            type="submit"
+           // type="submit"
           >
             Поиск
           </button>

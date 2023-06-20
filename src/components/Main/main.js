@@ -2,10 +2,10 @@ import React from "react";
 import './main.css';
 import BooksCardList from "../BooksCardList/BooksCardList";
 
-function Main() {
+function Main(props) {
   return (
     <div className="main">
-      <BooksCardList />
+      <BooksCardList books={props.books} />
     </div>
   );
 }

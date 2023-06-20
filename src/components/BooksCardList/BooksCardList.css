@@ -2,6 +2,9 @@
   display: flex;
   justify-content: center;
 }
+.movies-cardList__title-results {
+  color:aliceblue;
+}
 
 .movies-cardList__container {
   display: flex;
