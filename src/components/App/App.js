@@ -11,15 +11,16 @@ function App() {
 
 // хук с данными о книгах
 const [books, setBooks] = React.useState([]);
+const [foundBooks, setFoundBooks] = React.useState('');
 
 React.useEffect(() => {
  
     const promise = api.getBooks('');
     Promise.all([promise])
       .then((initialBooks) => {    
-        
-        setBooks(initialBooks[0]);
-        console.log(initialBooks[0]);
+        setFoundBooks(initialBooks[0].totalItems)
+        setBooks(initialBooks[0].items);
+        console.log(initialBooks[0].items);
       })
       .catch((result) => console.log(`${result} при загрузке данных`));
   
@@ -27,8 +28,9 @@ React.useEffect(() => {
 
   return (
     <div className="App">
-      <Header setBooks={setBooks}/>
-      <Main books={books}/>
+      <Header setBooks={setBooks} books={books} setFoundbooks={setFoundBooks}/>
+      <Main books={books}
+      foundbooks={foundBooks}/>
 <Footer />
     </div>
   );

@@ -5,7 +5,8 @@ import BooksCardList from "../BooksCardList/BooksCardList";
 function Main(props) {
   return (
     <div className="main">
-      <BooksCardList books={props.books} />
+      <BooksCardList books={props.books}
+      foundbooks={props.foundbooks} />
     </div>
   );
 }

@@ -2,14 +2,15 @@ import React from "react";
 import "./SearchForm.css"
 import api from "../../utils/apiBooks";
 
-function SearchForm({setBooks}) {
+function SearchForm({setBooks, setFoundbooks}) {
 
   const [search, setSearch] = React.useState("");
   
   function showBooks (e) {
     e.preventDefault();
     api.getBooks(search)
-    .then(data => setBooks(data))
+    .then((data) => {setBooks(data.items); setFoundbooks(data.totalItems)})
+    
     
   }
 
