@@ -13,6 +13,10 @@ function App() {
 const [books, setBooks] = React.useState([]);
 // хук с количеством найденых книг
 const [foundBooks, setFoundBooks] = React.useState('');
+// хук для прелоудера
+const [isPreloaderActive, setPreloaderStatus] = React.useState(false);
+
+
  React.useEffect(() => {
  
      const promise = api.getBooks('');
@@ -37,8 +41,8 @@ const [foundBooks, setFoundBooks] = React.useState('');
 
   return (
     <div className="App">
-      <Header setBooks={setBooks} books={books} setFoundbooks={setFoundBooks}/>
-      <Main books={books}
+      <Header setBooks={setBooks} setFoundbooks={setFoundBooks} setPreloaderStatus={setPreloaderStatus}/>
+      <Main books={books} isPreloaderActive={isPreloaderActive}
       foundbooks={foundBooks}/>
 <Footer />
     </div>

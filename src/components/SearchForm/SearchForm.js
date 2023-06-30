@@ -2,7 +2,7 @@ import React from "react";
 import "./SearchForm.css"
 import api from "../../utils/apiBooks";
 
-function SearchForm({setBooks, setFoundbooks, books}) {
+function SearchForm({setBooks, setFoundbooks, setPreloaderStatus }) {
   //записываем данные из хранилища в переменные
   const storageBooks=  JSON.parse(localStorage.getItem('books'));
   const foundBooks=  JSON.parse(localStorage.getItem('foundBooks'));
@@ -17,10 +17,15 @@ function SearchForm({setBooks, setFoundbooks, books}) {
   },[]);
   
   function showBooks (e) {
+    // Включаем прелоудер
+    setPreloaderStatus(true);
     e.preventDefault();
+    // записываем в переменные данные по запросу
     api.getBooks(search)
-    .then((data) => {setBooks(data.items); setFoundbooks(data.totalItems); 
+    .then((data) => {setBooks(data.items); setFoundbooks(data.totalItems);setPreloaderStatus(false);
   })
+  // выключаем прелоудер
+  
    
     
   }

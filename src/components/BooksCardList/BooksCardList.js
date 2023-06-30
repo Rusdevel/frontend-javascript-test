@@ -1,10 +1,10 @@
 import React from "react";
 import BooksCard from "../BooksCard/BooksCard";
 import "./BooksCardList.css";
+import Preloader from "../Preloader/Preloader";
 
 
 function BooksCardList(props) {
-  //const {books} = props;
   return (
     <section className="movies-cardList">
       <div className="movies-cardList__container">
@@ -12,7 +12,7 @@ function BooksCardList(props) {
         <div className="movies-cardList__card">
         {props.books.map((book) => { 
           //let pictures = book.volumeInfo.imageLinks.smallThumbnail;
-           return ( 
+           return (
               <BooksCard
               preview={book.volumeInfo.previewLink}
               pictures={book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.smallThumbnail}
@@ -20,8 +20,10 @@ function BooksCardList(props) {
                categories={book.volumeInfo.categories}
               authors={book.volumeInfo.authors}
               />
+              
              );
           })}
+          {props.isPreloaderActive && <Preloader />}
            
                 
         </div>

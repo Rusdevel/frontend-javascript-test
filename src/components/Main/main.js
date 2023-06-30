@@ -6,7 +6,8 @@ function Main(props) {
   return (
     <div className="main">
       <BooksCardList books={props.books}
-      foundbooks={props.foundbooks} />
+      foundbooks={props.foundbooks}
+      isPreloaderActive={props.isPreloaderActive} />
     </div>
   );
 }
