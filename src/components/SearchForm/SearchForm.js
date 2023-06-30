@@ -2,15 +2,26 @@ import React from "react";
 import "./SearchForm.css"
 import api from "../../utils/apiBooks";
 
-function SearchForm({setBooks, setFoundbooks}) {
+function SearchForm({setBooks, setFoundbooks, books}) {
+  //записываем данные из хранилища в переменные
+  const storageBooks=  JSON.parse(localStorage.getItem('books'));
+  const foundBooks=  JSON.parse(localStorage.getItem('foundBooks'));
 
+  // переменная для поисковой строки
   const [search, setSearch] = React.useState("");
+
+// извлекаем данные из хранилища, что бы ответ остался при перезагрузке
+   React.useEffect(() => {
+    setBooks(storageBooks)
+    setFoundbooks(foundBooks)
+  },[]);
   
   function showBooks (e) {
     e.preventDefault();
     api.getBooks(search)
-    .then((data) => {setBooks(data.items); setFoundbooks(data.totalItems)})
-    
+    .then((data) => {setBooks(data.items); setFoundbooks(data.totalItems); 
+  })
+   
     
   }
 
